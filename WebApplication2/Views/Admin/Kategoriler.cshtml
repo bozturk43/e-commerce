@@ -1,0 +1,103 @@
+﻿@using WebApplication2.Models;
+@model List<Kategoriler>
+@{
+    ViewBag.Title = "Kategoriler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!-- Page header -->
+<div class="page-header">
+    <div class="page-header-content header-elements-lg-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Kategoriler</h4>
+            <a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
+        </div>
+
+
+    </div>
+</div>
+<!-- /page header -->
+<!-- Content area -->
+<div class="content pt-0">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Kategori Listesi</h5>
+            <div class="text-right">
+                <a href="~/Admin/Kategori_Ekle" class="btn btn-success">Kategori Ekle <i class="icon-check ml-2"></i></a>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table class="table datatable-scroll-y" width="100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kategori Adı</th>
+                        <th>Ana Kategori</th>
+                        <th>Sıralama</th>
+                        <th>Durum</th>
+                        <th class="text-center">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int i = 0;}
+                    @foreach (var kategori in Model)
+                    {
+                        i++;
+                        DataContext db = new DataContext(); var altkategori = db.kategoriler.Find(kategori.KategoriId);
+                        <tr>
+                            <td>@i</td>
+                            <td>@kategori.KategoriAdi</td>
+                            <td>
+                                @if (kategori.KategoriId > 0)
+                                {
+                                    <span class="badge badge-primary">
+                                        @altkategori.KategoriAdi
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-warning">Ana Kategori</span>
+                                }
+                            </td>
+                            <td>@kategori.Siralama</td>
+                            <td>
+                                @if (kategori.Durum == true)
+                                {
+                                    <span class="badge badge-success">Aktif</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger">Pasif</span>
+                                }
+                            </td>
+                            <td class="text-center">
+                                <div class="list-icons">
+                                    <div class="dropdown">
+                                        <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                            <i class="icon-menu9"></i>
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="~/Admin/Kategori_Duzenle" class="dropdown-item"><i class="icon-pencil7 text-primary"></i> Kategori Düzenle</a>
+                                            <a href="~/Admin/Kategori_Durum_Degistir" class="dropdown-item"><i class="icon-checkmark text-success"></i> Durum Değiştir</a>
+                                            <a href="~/Admin/Kategori_Sil" class="dropdown-item"><i class="icon-cross2 text-danger"></i> Kategori Sil</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+
+</div>
+<!-- /content area -->

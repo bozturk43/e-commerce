@@ -1,0 +1,166 @@
+﻿
+@{
+    ViewBag.Title = "Siparisler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!-- Page header -->
+<div class="page-header">
+    <div class="page-header-content header-elements-lg-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Siparişler</h4>
+            <a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
+        </div>
+
+
+    </div>
+</div>
+<!-- /page header -->
+<!-- Content area -->
+<div class="content pt-0">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Sipariş Listesi</h5>
+
+        </div>
+
+        <div class="card-body">
+            <table class="table datatable-basic" width="100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Sipariş No</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Tarih</th>
+                        <th>Toplam Tutar</th>
+                        <th>Durum</th>
+                        <th class="text-center">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>18022022AY10351</td>
+                        <td>erhankaya@gmail.com</td>
+                        <td>18-02-2022 10:35:22</td>
+                        <td>1975 TL</td>
+                        <td><span class="badge badge-secondary">Yeni</span></td>
+                        <!--<td><span class="badge badge-primary">Onaylandı</span></td>
+                        <td><span class="badge badge-info">Hazırlanıyor</span></td>
+                        <td><span class="badge badge-warning">Kargoya Verildi</span></td>
+                        <td><span class="badge badge-success">Teslim Edildi</span></td>
+                        <td><span class="badge badge-danger">İptal Edildi</span></td>-->
+                        <td class="text-center">
+                            <div class="list-icons">
+                                <div class="dropdown">
+                                    <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                        <i class="icon-menu9"></i>
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a href="#" class="dropdown-item"><i class="icon-pencil7 text-primary"></i> Sipariş Detayı</a>
+                                        <a href="#" class="dropdown-item"><i class="icon-cross2 text-danger"></i> Sipariş Sil</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>18022022AY1032</td>
+                        <td>erhankaya@gmail.com</td>
+                        <td>18-02-2022 10:35:22</td>
+                        <td>4975 TL</td>
+
+                        <td><span class="badge badge-primary">Onaylandı</span></td>
+                        <!--<td><span class="badge badge-secondary">Yeni</span></td>
+                        <td><span class="badge badge-info">Hazırlanıyor</span></td>
+                        <td><span class="badge badge-warning">Kargoya Verildi</span></td>
+                        <td><span class="badge badge-success">Teslim Edildi</span></td>
+                        <td><span class="badge badge-danger">İptal Edildi</span></td>-->
+                        <td class="text-center">
+                            <div class="list-icons">
+                                <div class="dropdown">
+                                    <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                        <i class="icon-menu9"></i>
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a href="#" class="dropdown-item"><i class="icon-pencil7 text-primary"></i> Sipariş Detayı</a>
+                                        <a href="#" class="dropdown-item"><i class="icon-cross2 text-danger"></i> Sipariş Sil</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>18022022AY1033</td>
+                        <td>erhankaya@gmail.com</td>
+                        <td>18-02-2022 10:35:22</td>
+                        <td>3275 TL</td>
+                        <td><span class="badge badge-warning">Kargoya Verildi</span></td>
+                        <!--<td><span class="badge badge-primary">Onaylandı</span></td>
+                        <td><span class="badge badge-info">Hazırlanıyor</span></td>
+                        <td><span class="badge badge-secondary">Yeni</span></td>
+
+                        <td><span class="badge badge-success">Teslim Edildi</span></td>
+                        <td><span class="badge badge-danger">İptal Edildi</span></td>-->
+                        <td class="text-center">
+                            <div class="list-icons">
+                                <div class="dropdown">
+                                    <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                        <i class="icon-menu9"></i>
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a href="#" class="dropdown-item"><i class="icon-pencil7 text-primary"></i> Sipariş Detayı</a>
+                                        <a href="#" class="dropdown-item"><i class="icon-cross2 text-danger"></i> Sipariş Sil</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>18022022AY1035</td>
+                        <td>erhankaya@gmail.com</td>
+                        <td>18-02-2022 10:35:22</td>
+                        <td>3275 TL</td>
+                        <td><span class="badge badge-success">Teslim Edildi</span></td>
+
+                        <!--<td><span class="badge badge-primary">Onaylandı</span></td>
+                        <td><span class="badge badge-info">Hazırlanıyor</span></td>
+                        <td><span class="badge badge-secondary">Yeni</span></td>
+                        <td><span class="badge badge-warning">Kargoya Verildi</span></td>
+                        <td><span class="badge badge-success">Teslim Edildi</span></td>
+                        <td><span class="badge badge-danger">İptal Edildi</span></td>-->
+                        <td class="text-center">
+                            <div class="list-icons">
+                                <div class="dropdown">
+                                    <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                        <i class="icon-menu9"></i>
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a href="#" class="dropdown-item"><i class="icon-pencil7 text-primary"></i> Sipariş Detayı</a>
+                                        <a href="#" class="dropdown-item"><i class="icon-cross2 text-danger"></i> Sipariş Sil</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+
+</div>
+<!-- /content area -->

@@ -1,0 +1,217 @@
+﻿@using WebApplication2.Models;
+@model Iletisim
+@{
+    ViewBag.Title = "Iletisim";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!-- Page header -->
+<div class="page-header">
+    <div class="page-header-content header-elements-lg-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - İleitşim Bilgileri</h4>
+            <a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
+        </div>
+
+
+    </div>
+</div>
+<!-- /page header -->
+<!-- Content area -->
+<div class="content pt-0">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">İleitşim İçeriği</h5>
+        </div>
+
+        <div class="card-body">
+            <form action="~/Admin/Iletisim" method="post" enctype="multipart/form-data">
+                <fieldset class="mb-3">
+                    <legend class="text-uppercase font-size-sm font-weight-bold border-bottom">İletişim Resmi - Harita</legend>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <img src="~/Content/images/@Model.Resim" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6">
+                            <iframe src="https://www.google.com/maps/embed?pb=@Model.GoogleMaps" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    <legend class="text-uppercase font-size-sm font-weight-bold border-bottom">İletişim Düzenle</legend>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">İletişim Resmi</label>
+                        <div class="col-lg-10">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile" name="resim">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">İletişim Başlığı</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" value="@Model.Baslik" name="baslik">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">İletişim Açıklaması</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="aciklama" value="@Model.Aciklama">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Telefon Numaraları</label>
+                        <div class="col-lg-10">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Telefon No 1" value="@Model.Tel1" name="tel1">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Telefon No 2" value="@Model.Tel2" name="tel2">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Telefon No 3" value="@Model.Tel3" name="tel3">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Email Adresleri</label>
+                        <div class="col-lg-10">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <input type="email" class="form-control" placeholder="Email 1" value="@Model.mail1" name="mail1">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="email" class="form-control" placeholder="Email 2" value="@Model.mail2" name="mail2">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="email" class="form-control" placeholder="Email 3" value="@Model.mail3" name="mail3">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Adresler</label>
+                        <div class="col-lg-10">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Adres 1" value="@Model.Adres1" name="adres1">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Adres 2" value="@Model.Adres2" name="adres2">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Adres 3" value="@Model.Adres3" name="adres3">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Google Maps</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" value="@Model.GoogleMaps" name="maps">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Sosyal Medya</label>
+                        <div class="col-lg-10">
+                            <div class="row mb-3">
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Facebook" value="@Model.Facebook" name="facebook">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Instagram" value="@Model.Instagram" name="instagram">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Twitter" value="@Model.Twitter" name="twitter">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="WhatsApp" value="@Model.Whatsapp" name="whatsapp">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Pinterest" value="@Model.Pinterest" name="pinterest">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Linkedin" value="@Model.Linkeden" name="linkedin">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Youtube" value="@Model.Youtube" name="youtube">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Telegram">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Flickr">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @{ 
+                        string gelensaat = @Model.CalismaSaatleri.Replace(" ","");
+                        string[] saat = gelensaat.Split('-');
+                    }
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Çalışma Saatleri</label>
+                        <div class="col-lg-10">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="time" name="calismabaslma" placeholder="Başlama Saati" value="@saat[0]">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="time" name="calismabitis" placeholder="Bitiş Saati" value="@saat[1]">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="font-weight-semibold">Durum</p>
+
+                        <div class="border p-3 rounded">
+                            <div class="custom-control custom-switch custom-control-inline">
+                                @if (Model.Durum == true)
+                                {
+                                    <input type="checkbox" class="custom-control-input" id="sc_li_c" checked name="durum">
+                                }
+                                else
+                                {
+                                    <input type="checkbox" class="custom-control-input" id="sc_li_c" name="durum">
+
+                                }
+                                <label class="custom-control-label" for="sc_li_c">Aktif / Pasif</label>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-success">İletişim Düzenle <i class="icon-check ml-2"></i></button>
+                    </div>
+                </fieldset>
+
+
+
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>
+<!-- /content area -->

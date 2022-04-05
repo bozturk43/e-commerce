@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Slider_Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="page-header-content header-elements-lg-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - <a href="~/Admin/Slider"><span class="font-weight-semibold">Slider Listesi</span></a> -  Slider Ekle</h4>
+            <a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
+        </div>
+
+
+    </div>
+</div>
+<!-- /page header -->
+<!-- Content area -->
+<div class="content pt-0">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Slider İçeriği</h5>
+        </div>
+
+        <div class="card-body">
+            <form action="~/Admin/Slider_Ekle" method="post" enctype="multipart/form-data">
+                <fieldset class="mb-3">
+                    <legend class="text-uppercase font-size-sm font-weight-bold border-bottom">Slider Bilgilerini Eksiksiz Doldurunuz</legend>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Slider Resmi</label>
+                        <div class="col-lg-10">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="resim" name="resim">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Slider Başlığı</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="baslik" id="baslik">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Slider Açıklaması</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="aciklama" id="aciklama">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Slider Buton Yazısı</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="btnyazi" id="btnyazi">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Slider Linki</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="link" id="link">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">İçerik Konumu</label>
+                        <div class="col-lg-10">
+                            <select class="form-control" name="konum" id="konum">
+                                <option value="Center">Center</option>
+                                <option value="Left">Left</option>
+                                <option value="Right">Right</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Sıralama</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" type="number" name="siralama" id="siralama">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <p class="font-weight-semibold">Durum</p>
+
+                        <div class="border p-3 rounded">
+                            <div class="custom-control custom-switch custom-control-inline">
+                                <input type="checkbox" class="custom-control-input" id="durum" checked name="durum">
+                                <label class="custom-control-label" for="sc_li_c">Aktif / Pasif</label>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-success">Slider Ekle <i class="icon-plus2 ml-2"></i></button>
+                    </div>
+                </fieldset>
+
+
+
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>
+

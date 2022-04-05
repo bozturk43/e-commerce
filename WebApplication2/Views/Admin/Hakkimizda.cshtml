@@ -1,0 +1,122 @@
+﻿@using WebApplication2.Models;
+@using System.Web
+@model Sayfalar
+@{
+    ViewBag.Title = "Hakkimizda";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <div class="page-header-content header-elements-lg-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - @Model.SayfaBasligi</h4>
+            <a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
+        </div>
+
+
+    </div>
+</div>
+<!-- /page header -->
+<!-- Content area -->
+<div class="content pt-0">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Hakkımızda Sayfa İçeriği</h5>
+        </div>
+
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                <fieldset class="mb-3">
+                    <legend class="text-uppercase font-size-sm font-weight-bold border-bottom">Sayfa Görselleri</legend>
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h3>Sayfa Resmi</h3>
+                            <br />
+                            <img src="~/Content/images/@Model.Resim" class="img-fluid" />
+                        </div>
+                        <div class="col-lg-4">
+                            <h3>Sayfa Icon</h3>
+                            <br />
+                            <img src="~/Content/images/@Model.Icon" width="200" />
+                        </div>
+                    </div>
+                    <legend class="text-uppercase font-size-sm font-weight-bold border-bottom">Sayfa Detayları</legend>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Sayfa Başlığı</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="baslik" id="baslik" value="@Model.SayfaBasligi">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Sayfa Resmi</label>
+                        <div class="col-lg-10">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="resim" name="resim">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Sayfa İconu</label>
+                        <div class="col-lg-10">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="icon" name="icon">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Sayfanın Kısa Açıklaması</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="kisaAciklama" id="kisaAciklama" value="@Model.KisaAciklama">
+                        </div>
+                    </div>
+                    <textarea class="summernote-height" name="aciklama" id="aciklama">
+						@Model.Aciklama
+					</textarea>
+
+                    <legend class="text-uppercase font-size-sm font-weight-bold border-bottom">Seo Ayarları</legend>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Title</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="title" id="title" value="@Model.Title">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Description</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="description" id="description" value="@Model.Description">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Keywords</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="keywords" id="keywords" value="@Model.Keyword">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Seo Url</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="seoUrl" id="seoUrl" value="@Model.SeoUrl">
+                        </div>
+                    </div>
+
+
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-success">Güncelle <i class="icon-check ml-2"></i></button>
+                    </div>
+                </fieldset>
+
+
+
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Yetki_Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="page-header-content header-elements-lg-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - <a href="~/Admin/Yetkiler"><span class="font-weight-semibold">Yetki Listesi</span></a> -  Yetki Ekle</h4>
+            <a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
+        </div>
+
+
+    </div>
+</div>
+<!-- /page header -->
+<!-- Content area -->
+<div class="content pt-0">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Yetki Ekle</h5>
+        </div>
+
+        <div class="card-body">
+            <form action="~/Admin/Yetki_Ekle" method="post" enctype="multipart/form-data">
+                <fieldset class="mb-3">
+                    <legend class="text-uppercase font-size-sm font-weight-bold border-bottom">Yetki Bilgilerini Eksiksiz Doldurunuz</legend>
+
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Yetki Adı</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="yetki">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <p class="font-weight-semibold">Durum</p>
+
+                        <div class="border p-3 rounded">
+                            <div class="custom-control custom-switch custom-control-inline">
+                                <input type="checkbox" class="custom-control-input" id="sc_li_c" checked name="durum">
+                                <label class="custom-control-label" for="sc_li_c">Aktif / Pasif</label>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-success">Yetki Ekle <i class="icon-plus2 ml-2"></i></button>
+                    </div>
+                </fieldset>
+
+
+
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>

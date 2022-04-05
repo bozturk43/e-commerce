@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Drag_Drop";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content pt-0">
+
+    <!-- Draggable -->
+    <div class="mb-3">
+        <h6 class="mb-0 font-weight-semibold">
+            Draggable
+        </h6>
+        <span class="text-muted d-block">Allow elements to be moved using the mouse</span>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <button id="btn1">Div Oluştur</button>
+
+
+
+            <!-- Basic -->
+            <div class="card" id="draggable-default-container" style="height:500px">
+                <div class="card-header">
+                    <h5 class="card-title">Default functionality</h5>
+                </div>
+
+                <div class="card-body">
+                    <p class="mb-3">Enable draggable functionality on any DOM element. Move the draggable object by clicking on it with the mouse and dragging it anywhere within the viewport. Draggable area is limited to this panel using <code>containment</code> option.</p>
+
+                    <div class="d-flex justify-content-center flex-column flex-sm-row" id="area">
+                        <div class="jqueryui-demo-element draggable-element text-center mx-auto mx-sm-0 rounded-pill">
+                            <span>Drag</span>
+                        </div>
+
+                        <div class="jqueryui-demo-element draggable-element text-center mx-auto mx-sm-3 my-3 my-sm-0 rounded-pill">
+                            <span>Drag</span>
+                        </div>
+
+                        <div class="jqueryui-demo-element draggable-element text-center mx-auto mx-sm-0 rounded-pill">
+                            <span>Drag</span>
+                        </div>
+                        <div class="jqueryui-demo-element draggable-element text-center mx-auto mx-sm-0 rounded-pill">
+                            <span>Drag</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /basic -->
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var btn1 = document.querySelector("#btn1");
+        var panel = document.querySelector("#area");
+
+        btn1.onclick = function () {
+
+            var div = document.createElement("div");
+            var span = document.createElement("span");
+
+            div.classList = "jqueryui-demo-element draggable-element text-center mx-auto mx-sm-0 rounded-pill ui-draggable ui-draggable-handle";
+
+            span.textContent = "Drag";
+
+            div.appendChild(span);
+            panel.appendChild(div);
+        }
+
+    </script>
+
+</div>
+
+
+

@@ -1,0 +1,93 @@
+﻿@using WebApplication2.Models;
+@model List<Mesajlar>
+@{
+    ViewBag.Title = "Iletisim_Kutusu";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!-- Page header -->
+<div class="page-header">
+    <div class="page-header-content header-elements-lg-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - İletişim Kutusu</h4>
+            <a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
+        </div>
+
+
+    </div>
+</div>
+<!-- /page header -->
+<!-- Content area -->
+<div class="content pt-0">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">İletişim Kutusu</h5>
+
+        </div>
+
+        <div class="card-body">
+            <table class="table datatable-scroll-y" width="100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Email</th>
+                        <th>Başlık</th>
+                        <th>Tarih</th>
+                        <th>Okuma Durumu</th>
+                        <th class="text-center">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int i = 0; DataContext db = new DataContext();} 
+                    @foreach (var mesaj in Model)
+                    {
+                        i++;
+                        <tr>
+                            <td>@i</td>
+                            <td>
+                                @{
+                                    var kullanici = db.kullanicilar.Find(mesaj.KullanicilarId);
+                                }
+                                @kullanici.Email
+                            </td>
+                            <td>@mesaj.Konu</td>
+                            <td>17-02-2022 12:49:52</td>
+                            <td>
+                                @if (mesaj.Okuma == true)
+                                {
+                                    <span class="badge badge-success">Okundu</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger">Okunmadı</span>
+                                }
+                            </td>
+                            <td class="text-center">
+                                <div class="list-icons">
+                                    <div class="dropdown">
+                                        <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                            <i class="icon-menu9"></i>
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="~/Admin/Mesaj_Detay/@mesaj.Id" class="dropdown-item"><i class="icon-eye text-success"></i> Mesajı Oku</a>
+                                            <a href="~/Admin/Mesaj_Sil/@mesaj.Id" class="dropdown-item"><i class="icon-cross2 text-danger"></i> Mesajı Sil</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+
+</div>
+<!-- /content area -->

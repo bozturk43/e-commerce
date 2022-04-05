@@ -1,0 +1,136 @@
+﻿@using WebApplication2.Models;
+@model Kullanicilar
+@{
+    ViewBag.Title = "Kullanici_Duzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    DataContext db = new DataContext();
+    var yetkim = db.yetkiler.Find(Model.YetkilerId);
+    var yetkiler = db.yetkiler.Where(x=>x.Durum==true).ToList();//durumu sadece true olan yetkileri getirecek
+}
+
+<div class="page-header">
+    <div class="page-header-content header-elements-lg-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - <a href="~/Admin/Kullanicilar"><span class="font-weight-semibold">Kullanıcı Listesi</span></a> -  @Model.Email</h4>
+            <a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
+        </div>
+
+
+    </div>
+</div>
+<!-- /page header -->
+<!-- Content area -->
+<div class="content pt-0">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Kullanıcı Bilgileri</h5>
+        </div>
+
+        <div class="card-body">
+            <form action="~/Admin/Kullanici_Duzenle/@Model.Id" method="post" enctype="multipart/form-data">
+                <fieldset class="mb-3">
+                    <legend class="text-uppercase font-size-sm font-weight-bold border-bottom">Kullanıcı Bilgilerini Düzenleyebilir yada silebilirsiniz</legend>
+                    <img src="~/Content/images/kullanici/@Model.Resim" width="250">
+                    <legend class="text-uppercase font-size-sm font-weight-bold border-bottom">Kullanıcı Bilgileri</legend>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Kullanıcı Resmi</label>
+                        <div class="col-lg-10">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile" name="resim">
+                                <label class="custom-file-label" for="customFile">Resim Seç</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Email</label>
+                        <div class="col-lg-10">
+                            <input type="email" class="form-control" value="@Model.Email" name="email">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Ad Soyad</label>
+                        <div class="col-lg-10">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" placeholder="Ad" name="ad" value="@Model.Ad">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" placeholder="Soyad" name="soyad" value="@Model.Soyad">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Kullanıcı Açıklaması</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" value="@Model.Aciklama" name="aciklama">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Yetki</label>
+                        <div class="col-lg-10">
+                            <select class="form-control" name="yetki">
+                                <optgroup>
+                                    <option value="@Model.YetkilerId">@yetkim.Yetki</option>
+                                </optgroup>
+                                @foreach (var yetki in yetkiler)
+                                {
+                                    <option value="@yetki.Id">@yetki.Yetki</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Şifre</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" type="text" placeholder="Şifre" name="sifre" value="@Model.Sifre">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <p class="font-weight-semibold">Durum</p>
+
+                        <div class="border p-3 rounded">
+                            <div class="custom-control custom-switch custom-control-inline">
+                                @if (Model.Durum == true)
+                                {
+                                    <input type="checkbox" class="custom-control-input" id="sc_li_c" checked name="durum">
+                                }
+                                else
+                                {
+                                    <input type="checkbox" class="custom-control-input" id="sc_li_c" name="durum">
+
+                                }
+                                <label class="custom-control-label" for="sc_li_c">Aktif / Pasif</label>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-success">Kullanıcı Düzenle <i class="icon-check ml-2"></i></button>
+                    </div>
+                </fieldset>
+
+
+
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>
+

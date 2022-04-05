@@ -1,0 +1,84 @@
+﻿@using WebApplication2.Models;
+@model Mesajlar
+@{
+    ViewBag.Title = "Mesaj_Detay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    if (Model.Okuma == false)
+    {
+        DataContext db = new DataContext();
+        var mesaj = db.mesajlar.Find(Model.Id);
+        mesaj.Okuma = true;
+        db.SaveChanges();
+    }
+}
+
+<div class="page-header">
+    <div class="page-header-content header-elements-lg-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - <a href="~/Admin/Iletisim_Kutusu"><span class="font-weight-semibold">İletişim Kutusu</span></a> -  Mesaj Detayı</h4>
+            <a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
+        </div>
+
+
+    </div>
+</div>
+<!-- /page header -->
+<!-- Content area -->
+<div class="content pt-0">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">@ViewBag.email</h5>
+            <div class="text-right">
+                <button type="submit" class="btn btn-primary">Mesaj Gönder <i class="icon-envelope ml-2"></i></button>
+            </div>
+        </div>
+
+
+        <div class="card-body">
+            <form action="#">
+                <fieldset class="mb-3">
+                    <legend class="text-uppercase font-size-sm font-weight-bold border-bottom">Mesaj Detayı</legend>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Ad Soyad</label>
+                        <div class="col-lg-10">
+                            <b>@ViewBag.adsoyad</b>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Mesaj Başlığı</label>
+                        <div class="col-lg-10">
+                            <b>@Model.Konu</b>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Gönderim Tarihi</label>
+                        <div class="col-lg-10">
+                            <p>17-02-2022 13:49:52</p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2">Mesaj</label>
+                        <div class="col-lg-10">
+                            <p>@Model.Mesaj</p>
+                        </div>
+                    </div>
+
+                    <div class="text-right">
+                        <a href="~/Admin/Mesaj_Sil/@Model.Id" class="btn btn-danger">Mesajı Sil <i class="icon-cross2 ml-2"></i></a>
+                    </div>
+                </fieldset>
+
+
+
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>
+

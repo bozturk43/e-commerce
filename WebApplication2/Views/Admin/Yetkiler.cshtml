@@ -1,0 +1,88 @@
+﻿@using WebApplication2.Models;
+@model List<Yetkiler>
+@{
+    ViewBag.Title = "Yetkiler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!-- Page header -->
+<div class="page-header">
+    <div class="page-header-content header-elements-lg-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Yetkiler</h4>
+            <a href="#" class="header-elements-toggle text-body d-lg-none"><i class="icon-more"></i></a>
+        </div>
+
+
+    </div>
+</div>
+<!-- /page header -->
+<!-- Content area -->
+<div class="content pt-0">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Yetki Listesi</h5>
+            <div class="text-right">
+                <a href="~/Admin/Yetki_Ekle" class="btn btn-success">Yetki Ekle <i class="icon-check ml-2"></i></a>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table class="table datatable-scroll-y" width="100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Yetki Adı</th>
+                        <th>Durum</th>
+                        <th class="text-center">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int i = 0;}
+                    @foreach (var yetki in Model)
+                    {
+                        i++;
+                        <tr>
+                            <td>@i</td>
+                            <td>@yetki.Yetki</td>
+                            <td>
+                                @if (yetki.Durum == true)
+                                {
+                                    <span class="badge badge-success">Aktif</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger">Pasif</span>
+
+                                }
+                            </td>
+                            <td class="text-center">
+                                <div class="list-icons">
+                                    <div class="dropdown">
+                                        <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                            <i class="icon-menu9"></i>
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="~/Admin/Yetki_Duzenle/@yetki.Id" class="dropdown-item"><i class="icon-pencil7 text-primary"></i> Yetki Düzenle</a>
+                                            <a href="~/Admin/Yetki_Durum/@yetki.Id" class="dropdown-item"><i class="icon-checkmark text-success"></i> Durum Değiştir</a>
+                                            <a href="~/Admin/Yetki_Sil/@yetki.Id" class="dropdown-item"><i class="icon-cross2 text-danger"></i> Yetki Sil</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+
+</div>
+<!-- /content area -->

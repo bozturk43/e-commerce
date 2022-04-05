@@ -1,0 +1,64 @@
+﻿@using WebApplication2.Models
+@model Sepet
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @if (Model.SepetUrunleri.Count > 0)
+            {
+                <table class="table table-bordered" border="1">
+                    <thead>
+                        <tr>
+                            <th>Resim</th>
+                            <th>Ürün Adı</th>
+                            <th>Adet</th>
+                            <th>Fiyat</th>
+                            <th>Ara Toplam</th>
+                            <th>İşlem</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        @foreach (var urun in Model.SepetUrunleri)
+                        {
+                            <tr>
+                                <td><img src="~/Content/images/@urun.Urunlers.Resim" width="50" /></td>
+                                <td>@urun.Urunlers.UrunAdi</td>
+                                <td>@urun.Adet</td>
+                                <td>@urun.Urunlers.Fiyat</td>
+                                <td>
+                                    @{var aratutar = urun.Urunlers.Fiyat * urun.Adet; }
+                                    @aratutar.ToString("c")
+                                </td>
+                                <td>
+                                    @using (Html.BeginForm("SepetSil", "Sepet"))
+                                    {
+                                        @Html.Hidden("Id", urun.Urunlers.Id)
+                                        <button type="submit" class="btn btn-danger">Sepetten Çıkart</button>
+                                    }
+
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="5">Toplam Tutar</th>
+                            <th>@Model.ToplamTutar()</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            }
+            else
+            {
+                <p>Sepette Ürün Bulunamadı. Ürün eklemek için <a href="~/urun"> tıklayınız</a></p>
+            }
+        </div>
+    </div>
+</div>
+
